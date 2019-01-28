@@ -33,8 +33,8 @@ public class GameField extends JPanel implements ActionListener {
     public void initGame() {
         sizeSnake = 3;
         for (int i = 0; i < sizeSnake; i++) {
-            x[i] = 48;
-            y[i] = 48 + i*DOT_SIZE;
+            x[i] = 64;
+            y[i] = 64 + i*DOT_SIZE;
         }
         timer = new Timer(FREQUENCY, this);
         timer.start();
@@ -49,6 +49,12 @@ public class GameField extends JPanel implements ActionListener {
             for (int i = 0; i < sizeSnake; i++) {
                 g.drawImage(dot, x[i], y[i], this);
             }
+        }
+        else {
+            String s = "Game Over";
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Harrington", Font.BOLD, DOT_SIZE*2));
+            g.drawString(s, SIZE/4, SIZE/2);
         }
     }
 
